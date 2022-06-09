@@ -13,7 +13,7 @@ export function createFighterPreview(fighter, position) {
   if (fighter) {
   let imageElement = createFighterImage(fighter);
   let fighterInfo = createElement({ tagName: 'div', className: 'fighter-preview__info' });
-  fighterInfo.innerText = `Name: ${fighter.name}\nHealth: ${fighter.health}\nAttack: ${fighter.attack}\nDefense: ${fighter.defense}`;
+  fighterInfo.innerHTML = `<strong>Name: ${fighter.name}<br>Health: ${fighter.health}<br>Attack: ${fighter.attack}<br>Defense: ${fighter.defense}</strong>`;
   
   fighterElement.append(imageElement);
   fighterElement.append(fighterInfo);
