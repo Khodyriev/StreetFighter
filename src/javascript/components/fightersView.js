@@ -25,7 +25,7 @@ function createFighter(fighter, selectFighter) {
   return fighterElement;
 }
 
-function createImage(fighter) {
+export function createImage(fighter) {
   const { source, name } = fighter;
   const attributes = { 
     src: source,

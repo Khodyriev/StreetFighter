@@ -13,10 +13,7 @@ export function renderArena(selectedFighters) {
   // todo:
   // - start the fight
   // - when fight is finished show winner
-
-  const [firstFighter, lastFighter] = selectedFighters;
-
-  fight(firstFighter, lastFighter).then((response) => showWinnerModal(response));
+  fight(...selectedFighters).then((resolve) => showWinnerModal(resolve));
 }
 
 function createArena(selectedFighters) {
