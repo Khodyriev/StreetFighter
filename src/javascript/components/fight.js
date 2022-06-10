@@ -12,21 +12,22 @@ PlayerTwoCriticalHitCombination: ['KeyU', 'KeyI', 'KeyO']
 export async function fight(firstFighter, secondFighter) {
   return new Promise((resolve) => {
     // resolve the promise with the winner when fight is over
-    const firstFighterLifeBar = document.querySelector('#left-fighter-indicator'); //leftHPBar
-    const secondFighterLifeBar = document.querySelector('#right-fighter-indicator'); //rightHPBar
+    //----here we go! - FIGHT!!!----//
+    const firstFighterLifeBar = document.querySelector('#left-fighter-indicator'); 
+    const secondFighterLifeBar = document.querySelector('#right-fighter-indicator'); 
 
-    const firstFighterCondition = { //firstFighterState
+    const firstFighterCondition = { 
       health: firstFighter.health,
       critEnabled: true,
       isBlocking: false 
     };
-    const secondFighterCondition = { //secondFighterState
+    const secondFighterCondition = { 
       health: secondFighter.health,
       critEnabled: true,
       isBlocking: false 
     };
 
-    const fightProssesSpot = () => { //handleHPMutation
+    const fightProssesSpot = () => { 
       if (secondFighterCondition.health <= 0) {
         secondFighterCondition.health = 0;
         resolve(firstFighter);
@@ -39,8 +40,8 @@ export async function fight(firstFighter, secondFighter) {
       secondFighterLifeBar.style.width = `${(secondFighterCondition.health / secondFighter.health) * 100}%`;
     };
 
-    const firstFighterSuperPOW = []; //firstFighterCombination
-    const secondFighterSuperPOW = []; //secondFighterCombination
+    const firstFighterSuperPOW = []; 
+    const secondFighterSuperPOW = []; 
 
         document.addEventListener('keydown', (e) => {
       if (!e.repeat) {
@@ -114,22 +115,21 @@ export function getDamage(attacker, defender) {
   let damage = getHitPower(attacker) - getBlockPower(defender);
   if (damage <= 0) {damage = 0;}
   return damage;
-
-}
+  }
 
 export function getHitPower(fighter) {
   // return hit power
   let criticalHitChance = Math.random() + 1;
-  return hitPower = fighter.attack * criticalHitChance;
+  return fighter.attack * criticalHitChance;
 }
 
 export function getBlockPower(fighter) {
   // return block power
   let dodgeChance = Math.random() + 1;
-  return blockPower = fighter.defense * dodgeChance;
+  return fighter.defense * dodgeChance;
 }
 
 export function getCriticalHit(fighter) {
   // return critical hit power
-  return criticalDamage = fighter.attack * 2;
+  return fighter.attack * 2;
 }
