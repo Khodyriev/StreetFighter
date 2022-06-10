@@ -1,6 +1,4 @@
-import { createElement } from '../../helpers/domHelper';
 import { showModal } from './modal';
-import { createFighterImage } from '../fighterPreview';
 import App from '../../app';
 import { createImage } from '../fightersView';
 

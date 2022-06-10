@@ -27,5 +27,3 @@ class FighterService {
 
 export const fighterService = new FighterService();
 
-// FighterService.getFighterDetails(2).then(console.log());
-// console.log(fighterInfo);
